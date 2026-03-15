@@ -1,0 +1,24 @@
+redis:
+  host: localhost
+  port: 6379
+  password: "12345678"
+  db: 0
+  job_queue: "scraper:jobs:pending"
+  working_queue: "scraper:jobs:working"
+  dead_letter_queue: "scraper:jobs:dlq"
+  max_retries: 3
+  timeout_seconds: 300 # Job visibility timeout
+
+worker:
+  concurrency: 2
+  max_pages_per_browser: 5
+  max_memory_mb: 2000
+  heartbeat_interval_sec: 15
+  retry_backoff_sec: 10
+  
+browser:
+  headless: false
+  locale: "fr-TN"
+  user_data_dir: null
+  disable_images: true
+  proxy: null # "http://user:pass@host:port"
